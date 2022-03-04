@@ -1,5 +1,5 @@
 // Declare the only 3 posible choices, rock paper and sissors
-let choices =["rock", "paper", "sissors"];
+const choices =["rock", "paper", "sissors"];
 const winners =[];
 //Declare a function that plays the game and plays 5 rounds
 function game(){
@@ -35,7 +35,8 @@ function playerChoice(){
 
 // declare a function that playes computer choice randomly
 function computerChoice(){
-    return choices[Math.floor((Math.random) * choices.length)];
+    const choices =["rock", "paper", "sissors"];
+    return choices[Math.floor((Math.random()) * choices.length)];
 }
 // function that validates the input
 function validateInput(choice){
@@ -51,9 +52,9 @@ function checkWinner(choicePlay, choiceComp){
     if (choicePlay===choiceComp){
         return "It's a tie";
     }
-    else if ((choicePlay==="rock" && choiceComp=="scissors") ||
-    (choicePlay==="paper" && choiceComp =="rock") ||
-    (choicePlay ==="scissors" && choiceComp=="paper")){
+    else if ((choicePlay==="rock" && choiceComp==="scissors") ||
+    (choicePlay==="paper" && choiceComp ==="rock") ||
+    (choicePlay ==="scissors" && choiceComp==="paper")){
         return "Player wins";
     }
     else{
