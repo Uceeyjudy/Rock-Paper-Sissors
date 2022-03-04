@@ -6,5 +6,58 @@ function game(){
     for (let i=0; i<5; i++){
         playRound(i);
     }
-    logwins()
+    logwins();
+    document.querySelector("button").textContent="Play Game Again"
+}
+// declare a function that plays a round
+function playRound(round){
+    const playerSelection = playerChoice();
+    const computerSelection = computerChoice();
+    const winner= checkWinner(playerSelection, computerSelection);
+    winners.push(winner);
+    logRound(playerSelection, computerSelection, winner, round);
+}
+// declare a function that takes the player choice
+function playerChoice(){
+    let input = prompt("Type either rock, paper or scissors");
+    while (input==null){
+        input = prompt("Please enter either rock, paper or scissor correctly")
+    }
+    return input;
+}
+input = input.toLowerCase();
+let check = validateInpute(input);
+if (check==true){
+    console.log(input);
+}
+// declare a function that playes computer choice randomly
+function computerChoice(){
+    return choices[Math.floor(Math.random * choices.length)];
+}
+// function that validates the input
+function validateInput(choice){
+    if (choices.includes(choice)){
+        return true;
+    } 
+    else{
+        return false;
+    }
+}
+// declare another function to check winner
+function checkWinner(choicePlay, choiceComp){
+    if (choicePlay===choiceComp){
+        return "It's a tie";
+    }
+    else if ((choicePlay==="rock" && choiceComp=="scissors") ||
+    (choicePlay==="paper" && choiceComp =="rock") ||
+    (choicePlay ==="scissors" && choiceComp=="paper")){
+        return "Player wins";
+    }
+    else{
+        return "Computer wins";
+    }
+}
+// declare another function to log or display wins
+function logWins(){
+    
 }
