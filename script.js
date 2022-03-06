@@ -3,9 +3,7 @@ const choices =["rock", "paper", "scissors"];
 const winners =[];
 //Declare a function that plays the game and plays 5 rounds
 function game(){
-    for (let i=1; i<6; i++){
-        playRound(i);
-    }
+    playRound()
     logWins();
     document.querySelector("button").textContent="Play Game Again";
 }
@@ -16,20 +14,22 @@ function playRound(round){
     const winner= checkWinner(playerSelection, computerSelection);
     winners.push(winner);
     logRound(playerSelection, computerSelection, winner, round);
+    addEventListener
 }
 // declare a function that takes the player choice
 function playerChoice(){
     let input = prompt("Type either rock, paper or scissors");
-    input= input.toLowerCase();
+    
     let check = validateInput(input);
-    if(check==false){
+    if(input==false){
         input = prompt("Please enter a correct spelling of rock, paper or scissors");
     }
-    else if (check==null){
+    else if (input==null){
         input= prompt("You have to enter a value!")
 
     }
     else {checkWinner();
+        input= input.toLowerCase();
     }
     return input;
 }
