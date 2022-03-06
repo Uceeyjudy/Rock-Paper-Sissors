@@ -2,19 +2,19 @@
 const choices =["rock", "paper", "scissors"];
 const winners =[];
 //Declare a function that plays the game and plays 5 rounds
-function game(){
-    playRound()
-    logWins();
-    document.querySelector("button").textContent="Play Game Again";
+function restartGame(){
+
+}
+function startGame(){
+    
 }
 // declare a function that plays a round
-function playRound(round){
+function playRound(playerSelection){
     const playerSelection = playerChoice();
     const computerSelection = computerChoice();
     const winner= checkWinner(playerSelection, computerSelection);
     winners.push(winner);
-    logRound(playerSelection, computerSelection, winner, round);
-    addEventListener
+
 }
 // declare a function that takes the player choice
 function playerChoice(){
@@ -50,27 +50,24 @@ function validateInput(choice){
 }
 // declare another function to check winner
 function checkWinner(choicePlay, choiceComp){
-    if (choicePlay===choiceComp){
-        return "Tie";
-    }
-    else if ((choicePlay=== "rock" && choiceComp==="scissors") ||
+    if ((choicePlay=== "rock" && choiceComp==="scissors") ||
     (choicePlay==="paper" && choiceComp ==="rock") ||
     (choicePlay ==="scissors" && choiceComp==="paper")){
         return "Player";
+    }
+    else if (choicePlay===choiceComp){
+        return "Tie";
     }
     else{
         return "Computer";
     }
 }
 // declare another function to log or display wins
-function logWins(){
+function setWins(){
     let playerWins=winners.filter((item)=>item=="Player").length;
     let computerWins=winners.filter((item)=>item == "Computer").length;
     let ties = winners.filter((item) =>item == "Tie").length;
-    console.log("Results");
-    console.log("Player wins", playerWins);
-    console.log("Computer wins", computerWins);
-    console.log("It's a Tie", ties);
+    
 }
 // declare another function that displays the round
 function logRound(playerChoice, computerChoice, winner, round){
@@ -80,4 +77,4 @@ function logRound(playerChoice, computerChoice, winner, round){
     console.log("Round", round);
     console.log("-----------------------")
 }
-game()
+startGame()
