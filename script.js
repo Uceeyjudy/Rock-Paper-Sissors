@@ -10,32 +10,14 @@ function startGame(){
 }
 // declare a function that plays a round
 function playRound(playerSelection){
-    const playerSelection = playerChoice();
     const computerSelection = computerChoice();
     const winner= checkWinner(playerSelection, computerSelection);
     winners.push(winner);
 
 }
-// declare a function that takes the player choice
-function playerChoice(){
-    let input = prompt("Type either rock, paper or scissors");
-    
-    let check = validateInput(input);
-    if(input==false){
-        input = prompt("Please enter a correct spelling of rock, paper or scissors");
-    }
-    else if (input==null){
-        input= prompt("You have to enter a value!")
-
-    }
-    else {checkWinner();
-        input= input.toLowerCase();
-    }
-    return input;
-}
 
 // declare a function that playes computer choice randomly
-function computerChoice(){
+function computerSelect(){
     const choices =["rock", "paper", "scissors"];
     return choices[Math.floor((Math.random()) * choices.length)];
 }
